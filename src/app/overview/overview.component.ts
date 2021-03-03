@@ -8,11 +8,10 @@ import {Title} from '@angular/platform-browser';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css']
 })
-export class OverviewComponent{
+export class OverviewComponent {
   products: Product[];
 
-  constructor(private productService: ProductService, private titleService: Title) {
-    this.titleService.setTitle('Felix\'\ Products');
+  constructor(private productService: ProductService) {
   }
 
   // tslint:disable-next-line:use-life-cycle-interface

@@ -36,6 +36,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
+import {ChartModule} from 'primeng/chart';
+
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
     DropdownModule,
     MultiSelectModule,
     InputTextareaModule,
-    CascadeSelectModule
+    CascadeSelectModule,
+    ChartModule
   ],
   declarations: [AppComponent, NavbarComponent, CreateComponent, DetailsComponent, OverviewComponent, OverviewComponent],
   bootstrap:    [ AppComponent ],
