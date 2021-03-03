@@ -1,0 +1,27 @@
+<!-- <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu> -->
+<div class="card">
+    <p-tabView styleClass="tabview-custom">
+        <p-tabPanel>
+            <ng-template pTemplate = "header">
+                <i class="pi pi-fw pi-list"></i>
+                <span>Overview</span>
+            </ng-template>
+            <app-overview></app-overview>
+
+        </p-tabPanel>
+        <p-tabPanel header="Header II">
+            <ng-template pTemplate = "header">
+                <i class="pi pi-fw pi-plus"></i>
+                <span>New Element</span>
+            </ng-template>
+            <app-create></app-create>
+        </p-tabPanel>
+        <p-tabPanel header="Header III">
+            <ng-template pTemplate = "header">
+                <i class="pi pi-fw pi-info-circle"></i>
+                <span>Details</span>
+            </ng-template>
+            <app-details></app-details>
+        </p-tabPanel>
+    </p-tabView>
+</div>

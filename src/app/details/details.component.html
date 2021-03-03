@@ -1,0 +1,34 @@
+<div class="card">
+    <h5>Advanced</h5>
+    <div class="ui-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname6" value="Firstname"/>
+            <p:inputText id="firstname6"/>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="lastname6" value="Lastname"/>
+            <p:inputText id="lastname6"/>
+        </div>
+        <div class="p-field p-col-12">
+            <p:outputLabel for="address" value="Address"/>
+            <p:inputTextarea id="address" rows="4"/>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="city" value="City"/>
+            <p:inputText id="city"/>
+        </div>
+        <div class="p-field p-col-12 p-md-3">
+            <p:outputLabel for="state" value="State"/>
+            <p:selectOneMenu id="state">
+                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                <f:selectItem itemLabel="Option 1" itemValue="Option 1"/>
+                <f:selectItem itemLabel="Option 2" itemValue="Option 2"/>
+                <f:selectItem itemLabel="Option 3" itemValue="Option 3"/>
+            </p:selectOneMenu>
+        </div>
+        <div class="p-field p-col-12 p-md-3">
+            <p:outputLabel for="zip" value="Zip"/>
+            <p:inputText id="zip"/>
+        </div>
+    </div>
+</div>

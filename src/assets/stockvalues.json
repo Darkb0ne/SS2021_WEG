@@ -1,0 +1,7 @@
+{
+  "data": [
+    {"name":  "INSTOCK"},
+    {"name":  "LOWSTOCK"},
+    {"name":  "OUTOFSTOCK"}
+  ]
+}
