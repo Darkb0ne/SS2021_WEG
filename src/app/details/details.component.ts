@@ -7,9 +7,8 @@ import { Product } from '../product';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent{
+export class DetailsComponent {
   data: any;
-
   constructor() {
     this.data = {
       labels: ['INSTOCK', 'LOWSTOCK', 'OUTOFSTOCK'],

@@ -49,7 +49,11 @@ import {ChartModule} from 'primeng/chart';
     ButtonModule,
     RatingModule,
     FormsModule,
-    RouterModule,
+    RouterModule.forRoot([
+      { path: '', component: OverviewComponent},
+      { path: 'details', component: DetailsComponent},
+      { path: 'create', component: CreateComponent}
+    ]),
     TabMenuModule,
     CalendarModule,
     InputSwitchModule,
