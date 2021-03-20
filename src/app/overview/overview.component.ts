@@ -17,7 +17,7 @@ export class OverviewComponent {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
-    console.log(this.productService.getProductsSmall().then(data => this.products = data));
+    console.log(this.products = this.productService.getProducts());
     // const test = this.products.filter(obj => {
     //  return obj.id === '1001';
     // });

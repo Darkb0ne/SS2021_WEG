@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
-import { Product } from './product';
+import {Product} from './product';
 
 @Injectable()
 export class ProductService {
@@ -42,7 +42,16 @@ export class ProductService {
     ];
     private products: Product[];
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+        if (Array.isArray(this.products) && this.products.length) { } else {
+            this.getProductsSmall().then(data => this.products = data);
+        }
+    }
+
+    addProduct(product: Product) {
+        this.products.push(product);
+        console.log(this.products);
+    }
 
     async getProductsSmall(): Promise<Product[]> {
         return await this.http.get<any>('assets/products-small.json')
@@ -51,29 +60,20 @@ export class ProductService {
             .then(data => data);
     }
 
-    async findProduct(id: number) {
-        const products = this.getProductsSmall().then(data => this.products = data);
-        return products;
-    }
-
 
     getProducts() {
-        return this.http.get<any>('assets/products.json')
-        .toPromise()
-        .then(res => <Product[]>res.data)
-        .then(data => data);
+        return this.products;
     }
 
     getProductsWithOrdersSmall() {
         return this.http.get<any>('assets/products-orders-small.json')
-        .toPromise()
-        .then(res => <Product[]>res.data)
-        .then(data => data);
+            .toPromise()
+            .then(res => <Product[]>res.data)
+            .then(data => data);
     }
 
-    generatePrduct(): Product {
-        const product: Product =  {
-            id: this.generateId(),
+    generateProduct(): Product {
+        const product: Product = {
             name: this.generateName(),
             description: 'Product Description',
             price: this.generatePrice(),
@@ -85,17 +85,6 @@ export class ProductService {
 
         product.image = product.name.toLocaleLowerCase().split(/[ ,]+/).join('-') + '.jpg';
         return product;
-    }
-
-    generateId() {
-        let text = '';
-        const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-        for (let i = 0; i < 5; i++) {
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-
-        return text;
     }
 
     generateName() {

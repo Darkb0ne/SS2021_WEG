@@ -17,91 +17,57 @@
     <p-autoComplete [(ngModel)]="selectedValue" [suggestions]="filteredValue" (completeMethod)="filterValue($event)" field="name" [minLength]="1"></p-autoComplete>
 </div>
 -->
-<div class="p-fluid p-grid">
+<form (ngSubmit)="onSubmit()" #productForm="ngForm" class="row g-3">
+
     <div class="p-field p-col-12 p-md-4">
         <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText [(ngModel)]="value1">
-            <label for="inputtext">InputText</label>
+            <p-inputNumber name="id" id="productId" [(ngModel)]="product.id"></p-inputNumber>
+            <label for="productId">ProductId</label>
         </span>
     </div>
-    <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input type="text" id="inputtext-left" pInputText [(ngModel)]="valueIconLeft">
-            <label for="inputtext-left">Left Icon</label>
-        </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label p-input-icon-right">
-            <i class="pi pi-spin pi-spinner"></i>
-            <input type="text" id="inputtext-right" pInputText [(ngModel)]="valueIconRight">
-            <label for="inputtext-right">Right Icon</label>
-        </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
+    <div class="p-fluid p-grid">
+        <div class="p-field p-col-12 p-md-4">
         <span class="p-float-label">
-            <p-autoComplete inputId="autocomplete"[(ngModel)]="selectedValue" [suggestions]="filteredValue" (completeMethod)="filterValue($event)" field="name" [minLength]="1"></p-autoComplete>
+            <input name="name"  type="text" id="productName" pInputText [(ngModel)]="product.name">
+            <label for="productName">ProductName</label>
+        </span>
+        </div>
+
+        <div class="p-field p-col-12 p-md-4">
+        <span class="p-float-label">
+            <p-inputNumber name="productPrice" id="productPrice" [(ngModel)]="product.price"></p-inputNumber>
+            <label for="productPrice">ProductPrice</label>
+        </span>
+        </div>
+
+        <div class="p-field p-col-12 p-md-4">
+        <span class="p-float-label">
+            <p-autoComplete name="autocomplete" id="autocomplete" [(ngModel)]="product.inventoryStatus" [suggestions]="filteredValue"
+                            (completeMethod)="filterValue($event)" field="name" [minLength]="1"></p-autoComplete>
             <label for="autocomplete">AutoComplete for StockValues</label>
         </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
+        </div>
+        <div class="p-field p-col-12 p-md-4">
         <span class="p-float-label">
-            <p-calendar inputId="calendar" [(ngModel)]="value3"></p-calendar>
-            <label for="calendar">Calendar</label>
+            <p-calendar id="productDate" name="productDate"  [(ngModel)]="product.date"></p-calendar>
+            <label for="productDate">ProductDate</label>
         </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
+        </div>
+
+        <div class="p-field p-col-12 p-md-4">
         <span class="p-float-label">
-            <p-chips inputId="chips" [(ngModel)]="value4"></p-chips>
-            <label for="chips">Chips</label>
+            <p-rating name="productRating"  inputId="productRating" [(ngModel)]="product.rating" [cancel]="false"></p-rating>
         </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-inputMask inputId="inputmask" mask="99/99/9999" [(ngModel)]="value5"></p-inputMask>
-            <label for="inputmask">InputMask</label>
-        </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-inputNumber inputId="inputnumber" [(ngModel)]="value6"></p-inputNumber>
-            <label for="inputnumber">InputNumber</label>
-        </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
-        <div class="p-inputgroup">
-            <span class="p-inputgroup-addon">
-                <i class="pi pi-user"></i>
-            </span>
+        </div>
+
+
+        <div class="p-field p-col-12 p-md-4">
             <span class="p-float-label">
-                <input type="text" id="inputgroup" pInputText [(ngModel)]="value7">
-                <label for="inputgroup">InputGroup</label>
+                <p-dropdown name="categories"  id="dropdown" [autoDisplayFirst]="false" [options]="categories" [(ngModel)]="product.category"
+                            optionLabel="name"></p-dropdown>
+                <label for="dropdown">Dropdown for Categories</label>
             </span>
         </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-    <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-cascadeSelect inputId="cascadeSelect" [options]="cascadeSelectCountries" optionLabel="cname" optionGroupLabel="name"
-                             [optionGroupChildren]="['states', 'cities']"></p-cascadeSelect>
-            <label for="cascadeSelect">CascadeSelect</label>
-        </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="cities" [(ngModel)]="value8" optionLabel="name"></p-dropdown>
-            <label for="dropdown">Dropdown</label>
-        </span>
-    </div>
-    <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-multiSelect inputId="multiselect" [options]="cities" [(ngModel)]="value9" optionLabel="name" [filter]="false"></p-multiSelect>
-            <label for="multiselect">MultiSelect</label>
-        </span>
-    </div>
-    <div class="p-field p-col-12">
-        <span class="p-float-label">
-            <textarea inputId="textarea" rows="3" cols="30" [(ngModel)]="value10" pInputTextarea></textarea>
-            <label for="textarea">Textarea</label>
-        </span>
-    </div>
-</div>
+</form>
