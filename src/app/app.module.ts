@@ -51,7 +51,7 @@ import {ChartModule} from 'primeng/chart';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: OverviewComponent},
-      { path: 'details', component: DetailsComponent},
+      { path: 'details/:id', component: DetailsComponent},
       { path: 'create', component: CreateComponent}
     ]),
     TabMenuModule,

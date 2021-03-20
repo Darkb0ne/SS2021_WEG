@@ -40,15 +40,22 @@ export class ProductService {
         'Yoga Mat',
         'Yoga Set',
     ];
+    private products: Product[];
 
     constructor(private http: HttpClient) { }
 
-    getProductsSmall() {
-        return this.http.get<any>('assets/products-small.json')
-        .toPromise()
-        .then(res => <Product[]>res.data)
-        .then(data => data);
+    async getProductsSmall(): Promise<Product[]> {
+        return await this.http.get<any>('assets/products-small.json')
+            .toPromise()
+            .then(res => <Product[]>res.data)
+            .then(data => data);
     }
+
+    async findProduct(id: number) {
+        const products = this.getProductsSmall().then(data => this.products = data);
+        return products;
+    }
+
 
     getProducts() {
         return this.http.get<any>('assets/products.json')

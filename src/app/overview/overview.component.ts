@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { ProductService } from '../productservice';
 import { Product } from '../product';
 import {Title} from '@angular/platform-browser';
+import {tryCatch} from 'rxjs/internal-compatibility';
 
 @Component({
   selector: 'app-overview',
@@ -16,6 +17,9 @@ export class OverviewComponent {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
-    this.productService.getProductsSmall().then(data => this.products = data);
+    console.log(this.productService.getProductsSmall().then(data => this.products = data));
+    // const test = this.products.filter(obj => {
+    //  return obj.id === '1001';
+    // });
   }
 }

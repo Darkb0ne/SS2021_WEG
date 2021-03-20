@@ -176,6 +176,7 @@ export class CreateComponent implements OnInit {
         const query = event.query;
         for (let i = 0; i < this.values.length; i++) {
             const country = this.values[i];
+            // tslint:disable-next-line:triple-equals
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(country);
             }
